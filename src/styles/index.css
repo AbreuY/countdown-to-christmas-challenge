@@ -1,12 +1,61 @@
+/* http://material.colorion.co/palette/3320 */
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+body {
+    font-family: 'Righteous', cursive;
+    color:#E74C3C;
+    text-align: center;
+    background: url("https://i.imgur.com/tY0L1wp.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
-/* 
+  
+  h1 {
+    text-align:center;
+    font-size: 60px;
+    color:#E74C3C;
+    text-shadow: 4px 2px 3px rgba(0,0,0, 0.6);
+    margin-bottom: 10px;
+    margin-top: 35px;
+  }
+  
+  #clockdiv {
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    margin-top: 65vh;
+}
+  .inner {
+    border: 5px solid #E74C3C;
+    border-radius: 20px;
+    margin-left: 10px;
+    width: 80px;
+    height: 80px;
+    box-shadow: 5px 5px 5px rgba(0,0,0, 0.5);
+    background: repeating-linear-gradient(55deg, 
+      rgba(221, 72, 72, 0.1), 
+      rgba(221, 72, 72, 0.1) 5px,
+      rgba(255, 255, 255, 0.2) 5px, 
+      rgba(255, 255, 255, 0.2) 10px);
+  }
+  .inner .smalltext {
+    font-size: 20px;
+    text-shadow: 1px 1px 0px rgba(0,0,0, 0.6);
+  }
+  
+  .days {
+    text-shadow: 4px 2px 3px rgba(0,0,0, 0.6);
+  }
+  .hours {
+    text-shadow: 4px 2px 3px rgba(0,0,0, 0.6);
+  }
+  .minutes {
+    text-shadow: 4px 2px 3px rgba(0,0,0, 0.6);
+  }
+  .seconds {
+    text-shadow: 4px 2px 3px rgba(0,0,0, 0.6);
+  }
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
 
-*/
