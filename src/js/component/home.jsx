@@ -14,73 +14,58 @@ const Home = () => {
 			max_size: 5,
 		});
 		snow.start();
-		/* https://www.sitepoint.com/build-javascript-countdown-timer-no-dependencies/ */
 
-		function getTimeRemaining(endtime) {
-			var t = Date.parse(endtime) - Date.parse(new Date());
-			var seconds = Math.floor((t / 1000) % 60);
-			var minutes = Math.floor((t / 1000 / 60) % 60);
-			var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-			var days = Math.floor(t / (1000 * 60 * 60 * 24));
-			return {
-				total: t,
-				days: days,
-				hours: hours,
-				minutes: minutes,
-				seconds: seconds,
-			};
+		const title = document.querySelector("title");
+		const christmasText = document.getElementById("mytext");
+
+		const now = new Date();
+		let year = now.getFullYear();
+
+		if (now.getMonth() > 9) {
+			year += 1;
 		}
 
-		function initializeClock(id, endtime) {
-			var clock = document.getElementById(id);
-			var daysSpan = clock.querySelector(".days");
-			var hoursSpan = clock.querySelector(".hours");
-			var minutesSpan = clock.querySelector(".minutes");
-			var secondsSpan = clock.querySelector(".seconds");
+		const crhistmas = new Date(`December 24, ${year} 00:00:00`);
+		const timeUntil = crhistmas.getTime() - now.getTime();
+		const daysUntil = Math.abs(
+			Math.ceil(timeUntil / (1000 * 60 * 60 * 24))
+		);
 
-			function updateClock() {
-				var t = getTimeRemaining(endtime);
-
-				daysSpan.innerHTML = t.days;
-				hoursSpan.innerHTML = ("0" + t.hours).slice(-2);
-				minutesSpan.innerHTML = ("0" + t.minutes).slice(-2);
-				secondsSpan.innerHTML = ("0" + t.seconds).slice(-2);
-
-				if (t.total <= 0) {
-					clearInterval(timeinterval);
-				}
-			}
-
-			updateClock();
-			var timeinterval = setInterval(updateClock, 1000);
+		switch (daysUntil) {
+			case 1:
+				christmasText.setAttribute(
+					"data-text",
+					`La Navidad está a ${daysUntil} dia de distancia!`
+				);
+				christmasText.innerText = `La Navidad está a ${daysUntil} dia de distancia!`;
+				title.innerHTML = ` Falta ${daysUntil} dia para Navidad!`;
+				break;
+			case 0:
+				christmasText.setAttribute(
+					"data-text",
+					`¡Hoy es Navidad, Felices fiestas para todos ustedes!`
+				);
+				christmasText.innerText = `¡Hoy es Navidad, Felices fiestas para todos ustedes!`;
+				title.innerHTML = "Siiii! hoy es Navidad!";
+				break;
+			default:
+				christmasText.setAttribute(
+					"data-text",
+					`Faltan ${daysUntil} dias para Navidad!`
+				);
+				christmasText.innerText = `Faltan ${daysUntil} dias para Navidad!`;
+				title.innerHTML = `${daysUntil} dias para Navidad!`;
+				break;
 		}
-
-		var deadline = "2021-12-24";
-		initializeClock("clockdiv", deadline);
 	};
 	return (
 		<>
 			<div id="snow"></div>
-
-			<div id="clockdiv">
-				<div className="inner">
-					<span className="days"></span>
-					<div className="smalltext">Days</div>
-				</div>
-				<div className="inner">
-					<span className="hours"></span>
-					<div className="smalltext">Hours</div>
-				</div>
-				<div className="inner">
-					<span className="minutes"></span>
-					<div className="smalltext">Minutes</div>
-				</div>
-				<div className="inner">
-					<span className="seconds"></span>
-					<div className="smalltext">Seconds</div>
-				</div>
+			<div className="countdownBox">
+				<span className="badge rounded-pill bg-text">
+					<h5 className="animated" id="mytext" data-text="" />
+				</span>
 			</div>
-			<h1>Until Christmas</h1>
 		</>
 	);
 };

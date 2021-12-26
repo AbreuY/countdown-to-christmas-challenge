@@ -4,13 +4,17 @@ body {
     font-family: 'Righteous', cursive;
     color:#E74C3C;
     text-align: center;
-    background: url("https://i.imgur.com/tY0L1wp.jpg") no-repeat center center fixed; 
+    background: url("https://i.imgur.com/tY0L1wp.jpg") no-repeat center top fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
+.bg-text {
+  opacity: 1;
+  background-color:rgba(0,0,0,0.21)!important;
+}
   
   h1 {
     text-align:center;
@@ -20,42 +24,29 @@ body {
     margin-bottom: 10px;
     margin-top: 35px;
   }
-  
-  #clockdiv {
-    font-size: 50px;
-    display: flex;
-    justify-content: center;
-    margin-top: 65vh;
+ 
+.countdownBox{
+  margin-top: 75vh;
 }
-  .inner {
-    border: 5px solid #E74C3C;
-    border-radius: 20px;
-    margin-left: 10px;
-    width: 80px;
-    height: 80px;
-    box-shadow: 5px 5px 5px rgba(0,0,0, 0.5);
-    background: repeating-linear-gradient(55deg, 
-      rgba(221, 72, 72, 0.1), 
-      rgba(221, 72, 72, 0.1) 5px,
-      rgba(255, 255, 255, 0.2) 5px, 
-      rgba(255, 255, 255, 0.2) 10px);
-  }
-  .inner .smalltext {
-    font-size: 20px;
-    text-shadow: 1px 1px 0px rgba(0,0,0, 0.6);
-  }
-  
-  .days {
-    text-shadow: 4px 2px 3px rgba(0,0,0, 0.6);
-  }
-  .hours {
-    text-shadow: 4px 2px 3px rgba(0,0,0, 0.6);
-  }
-  .minutes {
-    text-shadow: 4px 2px 3px rgba(0,0,0, 0.6);
-  }
-  .seconds {
-    text-shadow: 4px 2px 3px rgba(0,0,0, 0.6);
-  }
 
+.animated {
+  font-family: "Charm", cursive;
+  margin: 0;
+  padding: 1rem;
+  font-size: 3rem;
+  background: url("https://i.imgur.com/Zr7np7Z.png") no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: moveBg 90s linear infinite;
+  -webkit-animation: moveBg 90s linear infinite;
+}
 
+@keyframes moveBg {
+  0% {
+    background-position: 0% 30%;
+  }
+  100% {
+    background-position: 100% 15%;
+  }
+}
